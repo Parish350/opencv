@@ -1,0 +1,15 @@
+import cv2
+# star = cv2.imread("Assets\star addition.jpeg")
+# dot = cv2.imread("Assets\diamond addition.jpeg")
+# sum = cv2.addWeighted(star,0.7,dot,0.7,1)
+# cv2.imshow('Weighted Image',sum) 
+# sub = cv2.subtract(star,dot)
+# cv2.waitKey(0)
+# cv2.imshow('Subtract Image',sub) 
+# cv2.waitKey(0)
+
+nature = cv2.imread("Assets\Bilateral.jpg")
+resize = cv2.resize(nature,(1000,750))
+border = cv2.copyMakeBorder(nature,10,10,10,10,cv2.BORDER_WRAP)
+cv2.imshow('Resize Image',border) 
+cv2.waitKey(0)
