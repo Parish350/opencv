@@ -1,0 +1,15 @@
+import cv2
+# square = cv2.imread("Assets\square.jpg")
+# rectangle = cv2.imread("Assets\Rectangle.jpeg")
+# sum = cv2.addWeighted(square,0.7,dot,0.7,1)
+# cv2.imshow('Weighted Image',sum) 
+# sub = cv2.subtract(square,dot)
+# cv2.waitKey(0)
+# cv2.imshow('Subtract Image',sub) 
+# cv2.waitKey(0)
+
+tails = cv2.imread('Assets\Tails.png')
+resize = cv2.resize(tails,(1000,750))
+border = cv2.copyMakeBorder(tails,10,10,10,10,cv2.BORDER_WRAP)
+cv2.imshow('Resize Image',border) 
+cv2.waitKey(0)
