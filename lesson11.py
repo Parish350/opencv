@@ -3,14 +3,19 @@ import cv2,os
 
 path =  r"C:\Users\ppuga\Documents\jetlearn\opencv\Assets\images"
 os.chdir(path)
-images = os.listdir(path)
-print(images)
+image = os.listdir(path)
+images = []
+
+for img in image:
+  if img.endswith(('.jpg','.jpeg','.png')):
+   images.append(img)
+print(image)
 images.sort()
 
 frame = cv2.imread(images[0])
 h,w,l = frame.shape
 video_name = "MyFirstVideo.avi"
-video = cv2.VideoWriter(video_name,0,1,(w,h))
+video = cv2.VideoWriter(video_name,0,2,(w,h))
 for img in images:
   frame = cv2.imread(img)
   frame = cv2.resize(frame,(w,h))
