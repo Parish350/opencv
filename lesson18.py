@@ -14,11 +14,26 @@ for (subdirs,dirs,files)in os.walk(datasets):
    labels.append(int(label))
    id += 1
 #(images,labels) = [numpy.array(list)for list in[images,labels]]
-print(images)
-for i,img in enumerate(images):
- print(i,img.shape)
- 
+# print(images)
+# for i,img in enumerate(images):
+#  print(i,img.shape)
+
 images = numpy.array(images)
 labels = numpy.array(labels)
 recoginser = cv2.face.LBPHFaceRecognizer_create()
 recoginser.train(images,labels)
+face_cascade = cv2.CascadeClassifier(haar_file)
+webcam = cv2.VideoCapture(0)
+while True: 
+ ret,img = webcam.read()
+# Convert an image from RGB to HSV
+ grayImage = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+ faces = face_cascade.detectMultiScale(grayImage,1.3,4)
+ for (x,y,w,h) in faces: 
+    cv2.rectangle(img,(x,y),(x + w, y + h),(255,0,0),2)
+    face = grayImage[y:y +h, x:x + w]
+    face_resize = cv2.resize(face, (100,130))
+ cv2.imshow('screen',img)
+ K = cv2.waitKey(10)
+ if K == 27:
+        break
