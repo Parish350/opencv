@@ -14,6 +14,10 @@ for (subdirs,dirs,files)in os.walk(datasets):
    labels.append(int(label))
    id += 1
 #(images,labels) = [numpy.array(list)for list in[images,labels]]
+print(images)
+for i,img in enumerate(images):
+ print(i,img.shape)
+ 
 images = numpy.array(images)
 labels = numpy.array(labels)
 recoginser = cv2.face.LBPHFaceRecognizer_create()
