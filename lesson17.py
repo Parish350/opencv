@@ -1,6 +1,6 @@
 import cv2,os
 haar_file = "facedetector.xml"
-datasets = "Datasets/Parish"
+datasets = "C:/Users/ppuga\Documents/jetlearn/opencv/Datasets/Parish"
 # os.chdir (datasets)
 face_cascade = cv2.CascadeClassifier(haar_file)
 webcam = cv2.VideoCapture(0)
