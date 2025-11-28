@@ -12,7 +12,7 @@ for (subdirs,dirs,files)in os.walk(datasets):
    images.append(cv2.imread(path,0))
    label = id
    labels.append(int(label))
-   id += 1
+  id += 1
 #(images,labels) = [numpy.array(list)for list in[images,labels]]
 # print(images)
 # for i,img in enumerate(images):
@@ -33,6 +33,10 @@ while True:
     cv2.rectangle(img,(x,y),(x + w, y + h),(255,0,0),2)
     face = grayImage[y:y +h, x:x + w]
     face_resize = cv2.resize(face, (100,130))
+    prediction = recoginser.predict(face_resize)
+    print(prediction)
+    if prediction[1]>60:
+      cv2.putText(img,f'{names[prediction[0]]}',(x-10,y-10),cv2.FONT_HERSHEY_PLAIN,1,(0,255,0))
  cv2.imshow('screen',img)
  K = cv2.waitKey(10)
  if K == 27:
